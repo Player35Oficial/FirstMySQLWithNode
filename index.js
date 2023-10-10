@@ -9,6 +9,16 @@ app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
 
+// Lidar com dados via URL
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+// Lidar com dados no formato JSON
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.render("home");
 });
@@ -18,7 +28,7 @@ const conn = mysql.createConnection({
   user: "root",
   password: "root",
   database: "nodemysql",
-  port: 3307,
+  port: 3306,
 });
 
 conn.connect((error) => {
