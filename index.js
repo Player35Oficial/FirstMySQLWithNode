@@ -19,8 +19,31 @@ app.use(
 // Lidar com dados no formato JSON
 app.use(express.json());
 
+// ROTAS
 app.get("/", (req, res) => {
   res.render("home");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.post("/register/save", (req, res) => {
+  const { title, pagesqty } = req.body;
+
+  const query = `
+    INSERT INTO books (title, pagesqty)
+    VALUES ('${title}','${pagesqty}')
+  `;
+
+  conn.query(query, (error) => {
+    if (error) {
+      console.log(error);
+      return;
+    }
+  });
+
+  res.redirect("/");
 });
 
 const conn = mysql.createConnection({
