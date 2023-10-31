@@ -1,3 +1,55 @@
 * {
   font-family: "Poppins", "wingdings";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 0 16px;
+  margin-top: 8px;
+}
+
+.header-container {
+  height: 64px;
+  background-color: #b148b4;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 16px;
+}
+
+.header-container h1 {
+  font-weight: 500;
+}
+
+.nav-container {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  background-color: #e284e5;
+  gap: 8px;
+  padding: 0 16px;
+}
+
+.nav-container a {
+  text-decoration: none;
+  color: white;
+}
+
+.books-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.book-item {
+  padding: 16px;
+  border: 2px solid #a3a3a3;
+  border-radius: 8px;
+}
+
+.book-item .title {
+  text-transform: capitalize;
 }
