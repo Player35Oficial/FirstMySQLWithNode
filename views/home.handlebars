@@ -1,1 +1,12 @@
 <h2>Books</h2>
+<div class="books-container">
+
+  <div class="book-item">
+    {{#each books}}
+      <p>
+        {{this.title}}
+      </p>
+      <p>{{this.pagesqty}}</p>
+    {{/each}}
+  </div>
+</div>
