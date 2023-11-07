@@ -33,6 +33,24 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/book/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = `SELECT * FROM books where idbooks = ${id}`;
+
+  let book;
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    book = data[0];
+    // console.log(book);
+    // res.redirect("/");
+    res.render("book", { book });
+  });
+});
+
 app.get("/register", (req, res) => {
   res.render("register");
 });
