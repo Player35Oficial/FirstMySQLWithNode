@@ -3,16 +3,25 @@
 
   {{#each books}}
     <div class="book-item">
-      <h3 class="title">
-        Título:
-        {{this.title}}
-      </h3>
-      <p class="pagesqty">
-        Número de páginas:
-        <span>{{this.pagesqty}}</span>
-      </p>
+      <div class="content">
+        <h3 class="title">
+          Título:
+          {{this.title}}
+        </h3>
+        <p class="pagesqty">
+          Número de páginas:
+          <span>{{this.pagesqty}}</span>
+        </p>
+      </div>
       <div class="actions">
-        <a href="/book/{{this.idbooks}}">Ver mais</a>
+        <button class="see-more">
+          <a href="/book/{{this.idbooks}}">Ver mais</a>
+        </button>
+        <button class="delete">
+          <form action="/book/{{this.idbooks}}" method="POST">
+            <input type="submit" value="EXCLUIR" />
+          </form>
+        </button>
       </div>
     </div>
   {{/each}}

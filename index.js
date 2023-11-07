@@ -51,6 +51,20 @@ app.get("/book/:id", (req, res) => {
   });
 });
 
+app.post("/book/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = `DELETE FROM books WHERE idbooks = ${id}`;
+
+  conn.query(sql, (err, _) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.redirect("/");
+  });
+});
+
 app.get("/register", (req, res) => {
   res.render("register");
 });

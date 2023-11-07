@@ -1,8 +1,11 @@
 <main>
-  <div class="book">
-    {{#with book}}
+  {{#with book}}
+    <div class="book">
       <h2 class="title">Título: {{title}}</h2>
       <p>Quantidade de páginas: {{pagesqty}}</p>
-    {{/with}}
-  </div>
+    </div>
+    <div class="actions">
+      <a href="/book/{{idbooks}}">Editar</a>
+    </div>
+  {{/with}}
 </main>
