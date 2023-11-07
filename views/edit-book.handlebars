@@ -1,0 +1,26 @@
+<h2>Editar</h2>
+{{#with book}}
+  <form class="form" action="/update/save/:id" method="post">
+    <div class="form-group">
+      <label for="title" id="title">Título:</label>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        placeholder="Anterior: {{title}}"
+        value="{{title}}"
+      />
+    </div>
+    <div>
+      <label for="pagesqty" id="pageqty">Número de Páginas</label>
+      <input
+        type="number"
+        name="pagesqty"
+        id="pagesqty"
+        placeholder="Anterior: {{pagesqty}}"
+        value="{{pagesqty}}"
+      />
+    </div>
+    <button type="submit">Editar</button>
+  </form>
+{{/with}}
