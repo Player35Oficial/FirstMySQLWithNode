@@ -45,11 +45,41 @@ app.get("/book/:id", (req, res) => {
       return;
     }
     book = data[0];
-    // console.log(book);
-    // res.redirect("/");
+    
     res.render("book", { book });
   });
 });
+
+app.get("/book/edit/:id", (req, res) => {
+  const { id } = req.params;
+
+  const sql = `SELECT * FROM books where idbooks = ${id}`;
+
+  let book;
+  conn.query(sql, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    book = data[0];
+    
+    res.render("edit-book", { book });
+  });
+});
+
+app.post("/update/save", (req, res) => {
+  const {id, pagesqty, title} = req.body;
+
+  const sql = `UPDATE books SET title='${title}', pagesqty=${pagesqty} WHERE idbooks = ${id}`
+
+  conn.query(sql, (err) => {
+    if (err) {
+      console.log(err);
+      return
+    }
+    res.redirect("/")
+  })
+})
 
 app.post("/book/:id", (req, res) => {
   const { id } = req.params;
@@ -90,7 +120,7 @@ app.post("/register/save", (req, res) => {
 const conn = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root",
+  password: "",
   database: "nodemysql",
   port: 3306,
 });
